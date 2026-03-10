@@ -13,9 +13,10 @@ public class SecurityConfig {
 
         http
             .csrf(csrf -> csrf.disable())
+            .cors(cors -> {})  
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/**").permitAll()
-                .anyRequest().authenticated()
+                    .requestMatchers("/**").permitAll()
+                    .anyRequest().authenticated()
             )
             .formLogin(form -> form.disable());
 
